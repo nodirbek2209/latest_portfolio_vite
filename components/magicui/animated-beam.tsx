@@ -1,16 +1,13 @@
 "use client"
 
 import type React from "react"
-
 import { motion } from "framer-motion"
-
 import { type RefObject, useEffect, useId, useState } from "react"
-
 import { cn } from "@/lib/utils"
 
 export interface AnimatedBeamProps {
   className?: string
-  containerRef: RefObject<HTMLElement | null> // Container ref
+  containerRef: RefObject<HTMLElement | null>
   fromRef: RefObject<HTMLElement | null>
   toRef: RefObject<HTMLElement | null>
   curvature?: number
@@ -34,7 +31,7 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
   fromRef,
   toRef,
   curvature = 0,
-  reverse = false, // Include the reverse prop
+  reverse = false,
   duration = Math.random() * 3 + 4,
   delay = 0,
   pathColor = "gray",
@@ -88,18 +85,26 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
       }
     }
 
-    // Initialize ResizeObserver
+    // Initialize ResizeObserver to keep path in sync
+    const ro = new ResizeObserver(() => updatePath())
+    if (containerRef.current) ro.observe(containerRef.current)
+    if (fromRef.current) ro.observe(fromRef.current as Element)
+    if (toRef.current) ro.observe(toRef.current as Element)
+    if (document.documentElement) ro.observe(document.documentElement)
 
+    // Also listen for window events that can affect layout
+    window.addEventListener("resize", updatePath)
+    window.addEventListener("orientationchange", updatePath)
+    window.addEventListener("scroll", updatePath, { passive: true })
 
-    // Observe the container element
-
-
-    // Call the updatePath initially to set the initial path
+    // Initial compute
     updatePath()
 
-    // Clean up the observer on component unmount
     return () => {
-
+      ro.disconnect()
+      window.removeEventListener("resize", updatePath)
+      window.removeEventListener("orientationchange", updatePath)
+      window.removeEventListener("scroll", updatePath)
     }
   }, [containerRef, fromRef, toRef, curvature, startXOffset, startYOffset, endXOffset, endYOffset])
 
@@ -112,19 +117,18 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
       className={cn("pointer-events-none absolute left-0 top-0 transform-gpu stroke-2", className)}
       viewBox={`0 0 ${svgDimensions.width} ${svgDimensions.height}`}
     >
+      {/* Base faint path */}
       <path d={pathD} stroke={pathColor} strokeWidth={pathWidth} strokeOpacity={pathOpacity} strokeLinecap="round" />
+
+      {/* Gradient stroked path (animated) */}
       <path d={pathD} strokeWidth={pathWidth} stroke={`url(#${id})`} strokeOpacity="1" strokeLinecap="round" />
+
       <defs>
         <motion.linearGradient
           className="transform-gpu"
           id={id}
-          gradientUnits={"userSpaceOnUse"}
-          initial={{
-            x1: "0%",
-            x2: "0%",
-            y1: "0%",
-            y2: "0%",
-          }}
+          gradientUnits="userSpaceOnUse"
+          initial={{ x1: "0%", x2: "0%", y1: "0%", y2: "0%" }}
           animate={{
             x1: gradientCoordinates.x1,
             x2: gradientCoordinates.x2,
@@ -134,15 +138,15 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
           transition={{
             delay,
             duration,
-            ease: [0.16, 1, 0.3, 1], // https://easings.net/#easeOutExpo
+            ease: [0.16, 1, 0.3, 1],
             repeat: Number.POSITIVE_INFINITY,
             repeatDelay: 0,
           }}
         >
-          <stop stopColor={gradientStartColor} stopOpacity="0"></stop>
-          <stop stopColor={gradientStartColor}></stop>
-          <stop offset="32.5%" stopColor={gradientStopColor}></stop>
-          <stop offset="100%" stopColor={gradientStopColor} stopOpacity="0"></stop>
+          <stop stopColor={gradientStartColor} stopOpacity="0" />
+          <stop stopColor={gradientStartColor} />
+          <stop offset="32.5%" stopColor={gradientStopColor} />
+          <stop offset="100%" stopColor={gradientStopColor} stopOpacity="0" />
         </motion.linearGradient>
       </defs>
     </svg>

@@ -11,10 +11,11 @@ import TeamSection from "@/components/team-section.tsx"
 import AchievementsSection from "@/components/achievements-section.tsx"
 import ProductsSection from "@/components/products-section.tsx"
 import AboutSection from "@/components/about-section.tsx"
-import AnimatedBeamDemo from "@/components/animated-beam-demo.tsx"
+
 import { CommentsSection } from "@/components/comments-section.tsx"
 import { ContactUsSection } from "@/components/contact-us-section.tsx"
 import PhoneVideoCollage from "@/components/phone-video-collage.tsx"
+import AnimatedBeamDemo from "@/components/animated-beam-demo.tsx";
 
 
 export default function Home() {
