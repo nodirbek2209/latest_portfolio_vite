@@ -54,7 +54,7 @@ const teamMembers = [
     id: 3,
     name: "Yoqubjonov Abdulhafiz",
     role: "Project Manager && Frontend Dev",
-    title: "Full-Stack Developer && Tech Innovator",
+    title: "Full-Stack Dev && Tech Innovator",
     bio: "I am a passionate software engineer and project manager focused on building scalable, user-centric applications. With strong experience in React, TypeScript, and Python, he leads projects that blend clean design with solid architecture and team collaboration.",
     image: "/abdulhafiz.jpg",
     skills: [
