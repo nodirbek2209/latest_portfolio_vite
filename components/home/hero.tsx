@@ -139,6 +139,7 @@ export default function Hero() {
                                     src="/presidential_school.png"
                                     alt="Presidential Schools"
                                     className="h-8 object-contain"
+
                                 />
                             </div>
                         </div>
