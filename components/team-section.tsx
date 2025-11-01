@@ -8,7 +8,7 @@ const teamMembers = [
   {
     id: 1,
     name: "Rejabaliyev Nodirbek",
-    role: "Founder & CEO",
+    role: "Founder && CEO",
     title: "Educational Visionary && Flutter Dev",
     bio: "With 1+ years of experience in educational technology, Nodirbek founded Eduoila to digitilize heducational system. His passion for innovation drives our mission to make quality education accessible to everyone.",
     image: "/nodirbek.png",
@@ -24,7 +24,7 @@ const teamMembers = [
       "Tailwind CSS",
     ],
     experience: [
-      { company: "Eduoila", role: "Founder & CEO", period: "2025 — Present" },
+      { company: "Eduoila", role: "Founder && CEO", period: "2025 — Present" },
       { company: "EduMarkaz", role: "Mobile Developer", period: "2024 — 2025" },
       { company: "SBM", role: "Python Automation", period: "2023 — 2025" },
     ],
@@ -38,12 +38,12 @@ const teamMembers = [
   {
     id: 2,
     name: "Dilnoza Eraliyeva",
-    role: "Flutter & Web Developer",
+    role: "Flutter && Web Developer",
     title: "Frontend Developer",
     bio: "Dilnoza is a Flutter and web developer who focuses on building smooth, visually appealing, and efficient user interfaces. At Eduoila, she works on crafting responsive web and mobile experiences that simplify learning for everyone.",
     image: "/dilnoza.jpg",
     skills: ["Flutter", "Dart", "React", "UI/UX Design", "Data Analytics", "REST APIs"],
-    experience: [{ company: "Eduoila", role: "Flutter & Web Developer", period: "2025 — Present" }],
+    experience: [{ company: "Eduoila", role: "Flutter && Web Developer", period: "2025 — Present" }],
     socials: {
       linkedin: "https://www.linkedin.com/in/dilnoza-eraliyeva-3575b7293",
       github: "https://github.com/dilnoza471",
@@ -53,7 +53,7 @@ const teamMembers = [
   {
     id: 3,
     name: "Yoqubjonov Abdulhafiz",
-    role: "Project Manager & Frontend Developer",
+    role: "Project Manager && Frontend Dev",
     title: "Full-Stack Developer && Tech Innovator",
     bio: "I am a passionate software engineer and project manager focused on building scalable, user-centric applications. With strong experience in React, TypeScript, and Python, he leads projects that blend clean design with solid architecture and team collaboration.",
     image: "/abdulhafiz.jpg",
@@ -71,7 +71,7 @@ const teamMembers = [
       "Problem Solving",
     ],
     experience: [
-      { company: "Eduoila", role: "Project Manager & Software Engineer", period: "2025 — Present" },
+      { company: "Eduoila", role: "Project Manager && Software Engineer", period: "2025 — Present" },
       { company: "1Doc", role: "Frontend Developer", period: "Aug 2025 — Oct 2025" },
       { company: "MaxCyberCom", role: "Frontend Developer", period: "2024 — 2025" },
       { company: "Freelance", role: "Frontend Developer", period: "2023 — 2025" },
@@ -85,8 +85,8 @@ const teamMembers = [
   {
     id: 4,
     name: "Musayev Ximmatilloxon",
-    role: "Founder & CEO",
-    title: "Backend Dev & Product Architect",
+    role: "Founder && CEO",
+    title: "Backend Dev && Product Architect",
     image: "/ximmatilloxon.png",
     bio: "As co-founder of Eduoila, Ximmatilloxon leads the vision and development of our technology ecosystem. With deep expertise in backend engineering and automation, he builds scalable, high-quality solutions that enhance education.",
     skills: [
@@ -94,7 +94,7 @@ const teamMembers = [
       "Python",
       "PostgreSQL",
       "Redis",
-      "Docker & Nginx",
+      "Docker && Nginx",
       "WebSockets",
       "GraphQL",
       "System Design",
@@ -103,7 +103,7 @@ const teamMembers = [
       "Problem Solving",
     ],
     experience: [
-      { company: "Eduoila", role: "Founder & CEO", period: "2025 — Present" },
+      { company: "Eduoila", role: "Founder && CEO", period: "2025 — Present" },
       { company: "EduMarkaz", role: "Lead Backend Developer", period: "2024 — Present" },
       { company: "SBM Tech Solutions", role: "Python Automation Developer", period: "2024" },
     ],
@@ -116,7 +116,7 @@ const teamMembers = [
   {
     id: 5,
     name: "Diyorbek Umaraliyev",
-    role: "Backend & AI Specialist",
+    role: "Backend && AI Specialist",
     title: "ML and Backend Engineer",
     bio: "Diyorbek is a backend and AI specialist passionate about building efficient, data-driven systems. At EduOila, he focuses on integrating machine learning models with scalable backend services.",
     image: "/diyorbek.jpg",
@@ -125,7 +125,7 @@ const teamMembers = [
       "Python",
       "PostgreSQL",
       "PyTorch",
-      "Docker & Nginx",
+      "Docker && Nginx",
       "WebSockets",
       "LLMs",
       "System Design",
