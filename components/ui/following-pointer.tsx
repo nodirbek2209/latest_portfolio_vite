@@ -1,34 +1,26 @@
-"use client"
+// src/components/FollowerPointerCard.tsx
 
-import React, { useEffect, useState } from "react"
-import { motion, AnimatePresence, useMotionValue } from "framer-motion"
+import React, { useEffect, useRef, useState } from "react"
+import { motion, AnimatePresence, useMotionValue, MotionValue } from "framer-motion"
 import { cn } from "@/lib/utils"
 
-export const FollowerPointerCard = ({
-  children,
-  className,
-  title,
-}: {
+type FollowerPointerCardProps = {
   children: React.ReactNode
   className?: string
   title?: string | React.ReactNode
+}
+
+export const FollowerPointerCard: React.FC<FollowerPointerCardProps> = ({
+  children,
+  className,
+  title,
 }) => {
   const x = useMotionValue(0)
   const y = useMotionValue(0)
-  const ref = React.useRef<HTMLDivElement>(null)
-  const [rect, setRect] = useState<DOMRect | null>(null)
+  const ref = useRef<HTMLDivElement>(null)
+  const [, setRect] = useState<DOMRect | null>(null)
+
   const [isInside, setIsInside] = useState<boolean>(false)
-
-  useEffect(() => {
-    console.log("[v0] FollowerPointerCard mounted")
-    return () => {
-      console.log("[v0] FollowerPointerCard unmounted")
-    }
-  }, [])
-
-  useEffect(() => {
-    console.log("[v0] isInside changed:", isInside)
-  }, [isInside])
 
   useEffect(() => {
     const updateRect = () => {
@@ -38,16 +30,12 @@ export const FollowerPointerCard = ({
     }
 
     updateRect()
-
-    const handleResize = () => updateRect()
-    const handleScroll = () => updateRect()
-
-    window.addEventListener("resize", handleResize)
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("resize", updateRect)
+    window.addEventListener("scroll", updateRect)
 
     return () => {
-      window.removeEventListener("resize", handleResize)
-      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("resize", updateRect)
+      window.removeEventListener("scroll", updateRect)
     }
   }, [])
 
@@ -56,40 +44,33 @@ export const FollowerPointerCard = ({
     y.set(e.clientY)
   }
 
-  const handleMouseLeave = () => {
-    setIsInside(false)
-  }
-
-  const handleMouseEnter = () => {
-    setIsInside(true)
-  }
+  const handleMouseLeave = () => setIsInside(false)
+  const handleMouseEnter = () => setIsInside(true)
 
   return (
     <div
-      onMouseLeave={handleMouseLeave}
-      onMouseEnter={handleMouseEnter}
-      onMouseMove={handleMouseMove}
-      style={{
-        cursor: "none",
-      }}
       ref={ref}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onMouseMove={handleMouseMove}
       className={cn("relative", className)}
+      style={{ cursor: "none" }}
     >
-      <AnimatePresence>{isInside && <FollowPointer x={x} y={y} title={title} />}</AnimatePresence>
+      <AnimatePresence>
+        {isInside && <FollowPointer x={x} y={y} title={title} />}
+      </AnimatePresence>
       {children}
     </div>
   )
 }
 
-export const FollowPointer = ({
-  x,
-  y,
-  title,
-}: {
-  x: any
-  y: any
+type FollowPointerProps = {
+  x: MotionValue<number>
+  y: MotionValue<number>
   title?: string | React.ReactNode
-}) => {
+}
+
+export const FollowPointer: React.FC<FollowPointerProps> = ({ x, y, title }) => {
   return (
     <motion.div
       className="fixed z-[99999] pointer-events-none"
@@ -97,20 +78,10 @@ export const FollowPointer = ({
         top: y,
         left: x,
         transform: "translate(-50%, -50%)",
-        pointerEvents: "none",
       }}
-      initial={{
-        scale: 0,
-        opacity: 0,
-      }}
-      animate={{
-        scale: 1,
-        opacity: 1,
-      }}
-      exit={{
-        scale: 0,
-        opacity: 0,
-      }}
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      exit={{ scale: 0, opacity: 0 }}
       transition={{
         type: "spring",
         stiffness: 150,
@@ -124,32 +95,19 @@ export const FollowPointer = ({
           fill="currentColor"
           strokeWidth="1"
           viewBox="0 0 16 16"
-          className="h-6 w-6 -rotate-[70deg] transform stroke-orange-400 text-orange-500 drop-shadow-lg pointer-events-none"
-          height="1em"
-          width="1em"
+          className="h-6 w-6 -rotate-[70deg] transform stroke-orange-400 text-orange-500 drop-shadow-lg"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z"></path>
         </svg>
         <motion.div
-          style={{
-            backgroundColor: "#e78a53", // Fixed orange color
-          }}
-          initial={{
-            scale: 0.5,
-            opacity: 0,
-          }}
-          animate={{
-            scale: 1,
-            opacity: 1,
-          }}
-          exit={{
-            scale: 0.5,
-            opacity: 0,
-          }}
-          className="ml-2 min-w-max rounded-full px-2 py-1 text-xs whitespace-nowrap text-white shadow-lg border border-white/20 pointer-events-none"
+          className="ml-2 min-w-max rounded-full px-2 py-1 text-xs whitespace-nowrap text-white shadow-lg border border-white/20"
+          style={{ backgroundColor: "#e78a53" }}
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.5, opacity: 0 }}
         >
-          {title || `Dynamic Layout`}
+          {title || "Dynamic Layout"}
         </motion.div>
       </div>
     </motion.div>

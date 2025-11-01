@@ -1,43 +1,42 @@
 "use client"
 
-import type React from "react"
-
-import { useTheme } from "next-themes"
+import { useState, useEffect, useRef, Suspense } from "react"
+import { motion, useInView } from "framer-motion"
 import Earth from "./ui/globe"
 import ScrambleHover from "./ui/scramble"
 import { FollowerPointerCard } from "./ui/following-pointer"
-import { motion, useInView } from "framer-motion"
-import { Suspense, useEffect, useRef, useState } from "react"
-import { geist } from "@/lib/fonts"
-import { cn } from "@/lib/utils"
+import { cn } from "../lib/utils"
 
 export default function Features() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
-  const { theme } = useTheme()
+  const [theme, setTheme] = useState<"light" | "dark">("light")
   const [isHovering, setIsHovering] = useState(false)
   const [isCliHovering, setIsCliHovering] = useState(false)
-  const [isFeature3Hovering, setIsFeature3Hovering] = useState(false)
-  const [isFeature4Hovering, setIsFeature4Hovering] = useState(false)
-  const [inputValue, setInputValue] = useState("")
 
-  const [baseColor, setBaseColor] = useState<[number, number, number]>([0.906, 0.541, 0.325]) // #e78a53 in RGB normalized
-  const [glowColor, setGlowColor] = useState<[number, number, number]>([0.906, 0.541, 0.325]) // #e78a53 in RGB normalized
+
+
+  const [baseColor, setBaseColor] = useState<[number, number, number]>([0.906, 0.541, 0.325])
+  const [glowColor, setGlowColor] = useState<[number, number, number]>([0.906, 0.541, 0.325])
 
   const [dark, setDark] = useState<number>(theme === "dark" ? 1 : 0)
 
   useEffect(() => {
-    setBaseColor([0.906, 0.541, 0.325]) // #e78a53
-    setGlowColor([0.906, 0.541, 0.325]) // #e78a53
+    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null
+    if (savedTheme) {
+      setTheme(savedTheme)
+    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      setTheme("dark")
+    }
+  }, [])
+
+  useEffect(() => {
+    setBaseColor([0.906, 0.541, 0.325])
+    setGlowColor([0.906, 0.541, 0.325])
     setDark(theme === "dark" ? 1 : 0)
   }, [theme])
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === "Enter") {
-      e.preventDefault()
-      setInputValue("")
-    }
-  }
+
 
   return (
     <section id="features" className="text-foreground relative overflow-hidden py-12 sm:py-24 md:py-32">
@@ -53,7 +52,6 @@ export default function Features() {
         <h2
           className={cn(
             "via-foreground mb-8 bg-gradient-to-b from-zinc-800 to-zinc-700 bg-clip-text text-center text-4xl font-semibold tracking-tighter text-transparent md:text-[54px] md:leading-[60px]",
-            geist.className,
           )}
         >
           Features
@@ -311,13 +309,8 @@ export default function Features() {
                     <div className="from-primary/50 to-primary/0 absolute left-1/2 h-[256px] w-[60%] -translate-x-1/2 scale-[2.5] rounded-[50%] bg-radial from-10% to-60% opacity-20 sm:h-[512px] dark:opacity-100"></div>
                     <div className="from-primary/30 to-primary/0 absolute left-1/2 h-[128px] w-[40%] -translate-x-1/2 scale-200 rounded-[50%] bg-radial from-10% to-60% opacity-20 sm:h-[256px] dark:opacity-100"></div>
                   </div>
-
                 </div>
               </motion.div>
-
-
-
-
             </div>
           </div>
         </FollowerPointerCard>

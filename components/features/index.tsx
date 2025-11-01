@@ -1,6 +1,5 @@
 "use client"
 
-import type React from "react"
 
 import { useTheme } from "next-themes"
 import Earth from "../ui/globe"
@@ -19,9 +18,7 @@ export default function Features() {
     const { theme } = useTheme()
     const [isHovering, setIsHovering] = useState(false)
     const [isCliHovering, setIsCliHovering] = useState(false)
-    const [isFeature3Hovering, setIsFeature3Hovering] = useState(false)
-    const [isFeature4Hovering, setIsFeature4Hovering] = useState(false)
-    const [inputValue, setInputValue] = useState("")
+
 
     const [baseColor, setBaseColor] = useState<[number, number, number]>([0.906, 0.541, 0.325]) // #e78a53 in RGB normalized
     const [glowColor, setGlowColor] = useState<[number, number, number]>([0.906, 0.541, 0.325]) // #e78a53 in RGB normalized
@@ -34,12 +31,7 @@ export default function Features() {
         setDark(theme === "dark" ? 1 : 0)
     }, [theme])
 
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-        if (e.key === "Enter") {
-            e.preventDefault()
-            setInputValue("")
-        }
-    }
+
 
     return (
         <section id="features" className="text-foreground relative overflow-hidden py-12 sm:py-24 md:py-32">
