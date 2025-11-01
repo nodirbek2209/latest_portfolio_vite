@@ -16,26 +16,41 @@ interface Comment {
 const MOCK_COMMENTS: Comment[] = [
   {
     id: "1",
-    name: "Ahmed Hassan",
-    comment: "Amazing service! Really helped our business grow exponentially.",
-    timestamp: "2 days ago",
-    img: "https://ui-avatars.com/api/?name=Ahmed+Hassan&background=random",
+    name: "Miraziz Hakimjonov",
+    comment:
+      "EduOila and their consulting team built a complete digital system for our education center — website, mobile app, and management tools. They truly understood our workflow and made it smarter.",
+    timestamp: "3 days ago",
+    img: "/miraziz.jpg",
   },
   {
     id: "2",
-    name: "Fatima Khan",
-    comment: "The team is incredibly responsive and professional. Highly recommended!",
+    name: "Iftikhorbek Muminov",
+    comment:
+      "Their consulting and development service turned our ideas into a working platform — from backend to mobile APK. The team combines creativity with solid technical expertise.",
     timestamp: "1 week ago",
-    img: "https://ui-avatars.com/api/?name=Fatima+Khan&background=random",
+    img: "/iftixor.jpg",
   },
   {
     id: "3",
-    name: "Mohammad Ali",
-    comment: "Best IT consulting experience we've had. Worth every penny!",
+    name: "Oybek Mahmudjonov",
+    comment:
+      "As a private tutor, I needed a personal portfolio and scheduling tool. EduOila’s team delivered a modern website and app integration that made managing lessons effortless.",
     timestamp: "2 weeks ago",
-    img: "https://ui-avatars.com/api/?name=Mohammad+Ali&background=random",
+    img: "/oybek.jpg",
   },
+
+  {
+    id: "5",
+    name: "Farhod Ro'ziboyev",
+    comment:
+      "The EduOila Consulting team developed our custom business website and mobile solution exactly how we envisioned it. Clear communication, fast delivery, and professional results.",
+    timestamp: "1 month ago",
+    img: "/farhod.jpg",
+  },
+
+
 ]
+
 
 export function CommentsSection() {
   const [comments, setComments] = useState<Comment[]>(MOCK_COMMENTS)

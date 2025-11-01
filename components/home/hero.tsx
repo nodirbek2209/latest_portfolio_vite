@@ -132,13 +132,13 @@ export default function Hero() {
                         </p>
                         <div className="flex items-center justify-center gap-8">
                             <div className="opacity-60 grayscale hover:opacity-100 hover:grayscale-0 hover:drop-shadow-[0_0_8px_rgba(56,189,248,0.5)] transition-all duration-300">
-                                <img src="/newuu_logo.png" alt="NewUU" className="h-8 object-contain" />
+                                <img src="/newuu_logo.png" alt="NewUU" className="h-10 object-contain" />
                             </div>
                             <div className="opacity-60 grayscale hover:opacity-100 hover:grayscale-0 hover:drop-shadow-[0_0_8px_rgba(56,189,248,0.5)] transition-all duration-300">
                                 <img
                                     src="/presidential_school.png"
                                     alt="Presidential Schools"
-                                    className="h-8 object-contain"
+                                    className="h-10 object-contain"
 
                                 />
                             </div>
