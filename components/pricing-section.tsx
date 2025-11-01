@@ -78,7 +78,7 @@ export function PricingSection() {
                         <span className="text-sm font-medium text-white/80">Pricing</span>
                     </motion.div>
 
-                    <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent mb-4">
+                    <h2 className="from-foreground/60 via-foreground to-foreground/60 dark:from-muted-foreground/55 dark:via-foreground dark:to-muted-foreground/55 mt-5 bg-gradient-to-r bg-clip-text text-center text-4xl font-semibold tracking-tighter text-transparent md:text-[54px] md:leading-[60px] __className_bb4e88 relative z-10">
                         EduOila products & services
                     </h2>
 

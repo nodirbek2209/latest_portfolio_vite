@@ -61,7 +61,9 @@ export default function AnimatedBeamDemo() {
       <div className="space-y-16">
         <div className="text-center max-w-4xl mx-auto space-y-4">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-            <span className="font-sans text-foreground">Powered by </span>
+            <span className="font-sans text-foreground"><h2 className="from-foreground/60 via-foreground to-foreground/60 dark:from-muted-foreground/55 dark:via-foreground dark:to-muted-foreground/55 mt-5 bg-gradient-to-r bg-clip-text text-center text-4xl font-semibold tracking-tighter text-transparent md:text-[54px] md:leading-[60px] __className_bb4e88 relative z-10">
+                        Powered by
+                    </h2> </span>
             <span className="font-serif text-foreground">Modern </span>
             <span className="text-gradient font-serif">Technologies</span>
           </h2>

@@ -81,7 +81,9 @@ export default function ProductsSection() {
                         transition={{ duration: 0.7, delay: 0.1, ease: "easeInOut" }}
                         className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent mb-4"
                     >
+                        <h2 className="from-foreground/60 via-foreground to-foreground/60 dark:from-muted-foreground/55 dark:via-foreground dark:to-muted-foreground/55 mt-5 bg-gradient-to-r bg-clip-text text-center text-4xl font-semibold tracking-tighter text-transparent md:text-[54px] md:leading-[60px] __className_bb4e88 relative z-10">
                         Explore our suite
+                    </h2>
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}

@@ -121,7 +121,37 @@ const teamMembers = [
             github: "https://github.com/Himmatilloxon",
             telegram: "https://t.me/Ximmatilloxon"
         }
-    }
+    },
+    {
+        id: 5,
+        name: "Diyorbek Umaraliyev",
+        role: "Software engineer",
+        title: "ML and Backend Engineer",
+        bio: "As a co-founder of Eduoila, Ximmatilloxon leads the vision and development of our technology ecosystem. With a strong background in backend engineering and automation, he drives the creation of scalable and innovative digital solutions for education. His focus on quality, performance, and user experience ensures that Eduoila continues to redefine how students and teachers connect through technology.",
+        image: "/diyorbek.jpg",
+        skills: [
+    "FastAPI",
+    "Python",
+    "PostgreSQL",
+    "Pytorch",
+    "Docker & Nginx",
+    "WebSockets",
+    "LLMs",
+    "System Design",
+    "Tensor",
+    "Deep Learning",
+    "Problem Solving"
+  ],
+        experience: [
+    { company: "Digital Generation Uzbekistan", role: "ML Engineer", period: "2025 — Present" },
+    { company: "EduMarkaz", role: "Backend Developer", period: "2024 — Present" },
+  ],
+        socials: {
+      linkedin: "https://www.linkedin.com/in/umaraliyev0101/",
+      github: "https://github.com/umaraliyev0101",
+      telegram: "https://t.me/umaraliyev0101",
+    },
+}
 
 ]
 
@@ -130,24 +160,45 @@ export default function TeamSection() {
     const isInView = useInView(ref, { once: true, amount: 0.3 })
     const [currentIndex, setCurrentIndex] = useState(0)
     const [direction, setDirection] = useState(0)
+    // Auto-advance timer that we can reset on manual navigation
+    const autoRef = useRef<number | null>(null)
 
-    useEffect(() => {
-        const timer = setInterval(() => {
+    const clearAuto = () => {
+        if (autoRef.current != null) {
+            clearInterval(autoRef.current)
+            autoRef.current = null
+        }
+    }
+
+    const startAuto = () => {
+        clearAuto()
+        autoRef.current = window.setInterval(() => {
             setDirection(1)
             setCurrentIndex((prev) => (prev + 1) % teamMembers.length)
         }, 8000)
-        return () => clearInterval(timer)
+    }
+
+    const resetAuto = () => {
+        startAuto()
+    }
+
+    useEffect(() => {
+        startAuto()
+        return () => clearAuto()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     const handlePrev = () => {
         setDirection(-1)
         setCurrentIndex((prev) => (prev - 1 + teamMembers.length) % teamMembers.length)
+        resetAuto()
 
     }
 
     const handleNext = () => {
         setDirection(1)
         setCurrentIndex((prev) => (prev + 1) % teamMembers.length)
+        resetAuto()
     }
 
     const currentMember = teamMembers[currentIndex]
@@ -413,58 +464,55 @@ export default function TeamSection() {
 
                 {/* Bottom full-width Skills + Experience (moved above controls) */}
                 {(currentMember.skills?.length || currentMember.experience?.length) && (
-                    <div className="mt-6 sm:mt-8">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                            {/* Skills card */}
-                            {currentMember.skills?.length ? (
-                                <div className="rounded-2xl border border-primary/20 bg-card/20 backdrop-blur-md p-4 sm:p-6">
-                                    <h4 className="text-foreground font-semibold text-sm sm:text-base mb-3">
-                                        Skills
-                                    </h4>
-                                    <div className="flex flex-wrap gap-2">
-                                        {currentMember.skills.map((skill, idx) => (
-                                            <span
-                                                key={idx}
-                                                className="px-2.5 py-1 rounded-full text-xs bg-primary/10 text-primary border border-primary/20"
-                                            >
-												{skill}
-											</span>
-                                        ))}
-                                    </div>
-                                </div>
-                            ) : (
-                                <div className="hidden md:block" />
-                            )}
+                <div className="mt-8 sm:mt-12 px-6 sm:px-10 md:px-16 lg:px-24">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+      {/* Skills card */}
+      {currentMember.skills?.length ? (
+        <div className="rounded-2xl border border-primary/20 bg-card/20 backdrop-blur-md p-6 sm:p-8 md:pl-12 lg:pl-16">
+          <h4 className="text-foreground font-semibold text-sm sm:text-base mb-4">
+            Skills
+          </h4>
+          <div className="flex flex-wrap gap-2.5">
+            {currentMember.skills.map((skill, idx) => (
+              <span
+                key={idx}
+                className="px-3 py-1 rounded-full text-xs sm:text-sm bg-primary/10 text-primary border border-primary/20"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <div className="hidden md:block" />
+      )}
 
-                            {/* Experience card */}
-                            {currentMember.experience?.length ? (
-                                <div className="rounded-2xl border border-primary/20 bg-card/20 backdrop-blur-md p-4 sm:p-6">
-                                    <h4 className="text-foreground font-semibold text-sm sm:text-base mb-3">
-                                        Experience
-                                    </h4>
-                                    <ul className="space-y-3">
-                                        {currentMember.experience.map((exp, idx) => (
-                                            <li key={idx} className="flex items-start gap-3">
-                                                <span className="mt-1 w-1.5 h-1.5 rounded-full bg-primary"></span>
-                                                <div>
-                                                    <p className="text-sm text-foreground">
-                                                        {exp.role}{" "}
-                                                        <span className="text-muted-foreground">
-															· {exp.company}
-														</span>
-                                                    </p>
-                                                    <p className="text-xs text-muted-foreground">
-                                                        {exp.period}
-                                                    </p>
-                                                </div>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            ) : null}
-                        </div>
-                    </div>
+      {/* Experience card */}
+      {currentMember.experience?.length ? (
+        <div className="rounded-2xl border border-primary/20 bg-card/20 backdrop-blur-md p-6 sm:p-8 md:pr-12 lg:pr-16">
+          <h4 className="text-foreground font-semibold text-sm sm:text-base mb-4">
+            Experience
+          </h4>
+          <ul className="space-y-3">
+            {currentMember.experience.map((exp, idx) => (
+              <li key={idx} className="flex items-start gap-3">
+                <span className="mt-1 w-1.5 h-1.5 rounded-full bg-primary"></span>
+                <div>
+                  <p className="text-sm text-foreground">
+                    {exp.role}{" "}
+                    <span className="text-muted-foreground">· {exp.company}</span>
+                  </p>
+                  <p className="text-xs text-muted-foreground">{exp.period}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
+    </div>
+  </div>
                 )}
+
 
                 {/* Controls */}
                 <div className="flex items-center justify-center gap-3 sm:gap-4 md:gap-8 mt-6 sm:mt-8 md:mt-12">
@@ -486,6 +534,7 @@ export default function TeamSection() {
                                 onClick={() => {
                                     setDirection(index > currentIndex ? 1 : -1)
                                     setCurrentIndex(index)
+                                    resetAuto()
                                 }}
                                 className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 ${
                                     index === currentIndex
