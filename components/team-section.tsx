@@ -122,36 +122,37 @@ const teamMembers = [
             telegram: "https://t.me/Ximmatilloxon"
         }
     },
-    {
-        id: 5,
-        name: "Diyorbek Umaraliyev",
-        role: "Software engineer",
-        title: "ML and Backend Engineer",
-        bio: "As a co-founder of Eduoila, Ximmatilloxon leads the vision and development of our technology ecosystem. With a strong background in backend engineering and automation, he drives the creation of scalable and innovative digital solutions for education. His focus on quality, performance, and user experience ensures that Eduoila continues to redefine how students and teachers connect through technology.",
-        image: "/diyorbek.jpg",
-        skills: [
+   {
+  id: 5,
+  name: "Diyorbek Umaraliyev",
+  role: "Backend & AI Specialist",
+  title: "ML and Backend Engineer",
+  bio: "Diyorbek is a backend and AI specialist passionate about building efficient, data-driven systems. At EduOila, he focuses on integrating machine learning models with scalable backend services.",
+  image: "/diyorbek.jpg",
+  skills: [
     "FastAPI",
     "Python",
     "PostgreSQL",
-    "Pytorch",
+    "PyTorch",
     "Docker & Nginx",
     "WebSockets",
     "LLMs",
     "System Design",
-    "Tensor",
+    "TensorFlow",
     "Deep Learning",
     "Problem Solving"
   ],
-        experience: [
+  experience: [
     { company: "Digital Generation Uzbekistan", role: "ML Engineer", period: "2025 — Present" },
-    { company: "EduMarkaz", role: "Backend Developer", period: "2024 — Present" },
+    { company: "EduMarkaz", role: "Backend Developer", period: "2024 — Present" }
   ],
-        socials: {
-      linkedin: "https://www.linkedin.com/in/umaraliyev0101/",
-      github: "https://github.com/umaraliyev0101",
-      telegram: "https://t.me/umaraliyev0101",
-    },
+  socials: {
+    linkedin: "https://www.linkedin.com/in/umaraliyev0101/",
+    github: "https://github.com/umaraliyev0101",
+    telegram: "https://t.me/umaraliyev0101"
+  }
 }
+
 
 ]
 
