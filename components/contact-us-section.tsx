@@ -49,7 +49,7 @@ export function ContactUsSection() {
   }
 
   return (
-    <section className="py-20 px-4">
+    <section className="py-20 px-4" id={"consulting"}>
       <div className="mx-auto max-w-4xl">
         <div className="bg-gradient-to-br from-blue-600/20 via-cyan-500/10 to-blue-500/20 backdrop-blur-sm border border-white/10 rounded-3xl p-8 md:p-12">
           <div className="text-center mb-12">

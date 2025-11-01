@@ -199,13 +199,16 @@ export function PricingSection() {
                     <p className="text-white/60 mb-4">
                         Need a unique project? We build custom portfolio websites, APKs, and integrations for any business.
                     </p>
-                    <motion.button
+                    <a href={"#consulting"}>
+                        <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                         className="text-[#a78bfa] hover:text-[#a78bfa]/80 font-medium transition-colors"
                     >
                         Contact our team →
                     </motion.button>
+                    </a>
+
                 </motion.div>
             </div>
         </section>
