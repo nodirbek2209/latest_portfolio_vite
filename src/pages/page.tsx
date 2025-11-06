@@ -16,9 +16,12 @@ import { CommentsSection } from "@/components/comments-section.tsx"
 import { ContactUsSection } from "@/components/contact-us-section.tsx"
 import PhoneVideoCollage from "@/components/phone-video-collage.tsx"
 import AnimatedBeamDemo from "@/components/animated-beam-demo.tsx";
+import { useI18n } from "@/lib/i18n";
+import type { Language } from "@/lib/i18n";
 
 
 export default function Home() {
+  const { t, lang, setLang } = useI18n()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -96,7 +99,7 @@ export default function Home() {
         {/* Replace external v0 link + SVG with local logo that scrolls to top */}
         <button
           type="button"
-          aria-label="Go to top"
+          aria-label={t("header.goToTop")}
           onClick={handleLogoClick}
           className={`z-50 flex items-center justify-center transition-all duration-300 rounded-none bg-transparent p-0 m-0 ${
             isScrolled ? "ml-4" : ""
@@ -123,7 +126,7 @@ export default function Home() {
               }
             }}
           >
-            <span className="relative z-20">Features</span>
+            <span className="relative z-20">{t("nav.features")}</span>
           </a>
           <a
             className="relative px-4 py-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
@@ -138,7 +141,7 @@ export default function Home() {
               }
             }}
           >
-            <span className="relative z-20">About</span>
+            <span className="relative z-20">{t("nav.about")}</span>
           </a>
           <a
             className="relative px-4 py-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
@@ -153,7 +156,7 @@ export default function Home() {
               }
             }}
           >
-            <span className="relative z-20">Products</span>
+            <span className="relative z-20">{t("nav.products")}</span>
           </a>
           <a
             className="relative px-4 py-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
@@ -168,7 +171,7 @@ export default function Home() {
               }
             }}
           >
-            <span className="relative z-20">Team</span>
+            <span className="relative z-20">{t("nav.team")}</span>
           </a>
           <a
             className="relative px-4 py-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
@@ -183,7 +186,7 @@ export default function Home() {
               }
             }}
           >
-            <span className="relative z-20">Pricing</span>
+            <span className="relative z-20">{t("nav.pricing")}</span>
           </a>
           <a
             className="relative px-4 py-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
@@ -198,7 +201,7 @@ export default function Home() {
               }
             }}
           >
-            <span className="relative z-20">Testimonials</span>
+            <span className="relative z-20">{t("nav.testimonials")}</span>
           </a>
           <a
             className="relative px-4 py-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
@@ -213,8 +216,21 @@ export default function Home() {
               }
             }}
           >
-            <span className="relative z-20">FAQ</span>
+            <span className="relative z-20">{t("nav.faq")}</span>
           </a>
+        </div>
+        {/* Language selector */}
+        <div className="ml-auto flex items-center gap-2">
+          <select
+            aria-label="Language"
+            value={lang}
+            onChange={(e) => setLang(e.target.value as Language)}
+            className="rounded-md border border-border bg-background/80 px-2 py-1 text-sm"
+          >
+            <option value="en">EN</option>
+            <option value="uz">UZ</option>
+            <option value="ru">RU</option>
+          </select>
         </div>
       </header>
 
@@ -222,7 +238,7 @@ export default function Home() {
         {/* Replace external v0 link + SVG with local logo that scrolls to top (mobile) */}
         <button
           type="button"
-          aria-label="Go to top"
+          aria-label={t("header.goToTop")}
           onClick={handleLogoClick}
           className="flex items-center justify-center rounded-none bg-transparent p-0 m-0"
         >
@@ -233,23 +249,36 @@ export default function Home() {
           />
         </button>
 
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="flex items-center justify-center w-10 h-10 rounded-lg bg-background/50 border border-border/50 transition-all hover:bg-background/80 hover:scale-105"
-          aria-label="Toggle menu"
-        >
-          <div className="flex flex-col items-center justify-center w-5 h-5 space-y-1">
-            <span
-              className={`block w-5 h-0.5 bg-foreground transition-all duration-300 rounded-full ${isMobileMenuOpen ? "rotate-45 translate-y-1.5" : ""}`}
-            ></span>
-            <span
-              className={`block w-5 h-0.5 bg-foreground transition-all duration-300 rounded-full ${isMobileMenuOpen ? "opacity-0" : ""}`}
-            ></span>
-            <span
-              className={`block w-5 h-0.5 bg-foreground transition-all duration-300 rounded-full ${isMobileMenuOpen ? "-rotate-45 -translate-y-1.5" : ""}`}
-            ></span>
-          </div>
-        </button>
+        <div className="flex items-center gap-2">
+          <select
+            aria-label="Language"
+            value={lang}
+            onChange={(e) => setLang(e.target.value as Language)}
+            className="rounded-md border border-border bg-background/80 px-2 py-1 text-sm"
+          >
+            <option value="en">EN</option>
+            <option value="uz">UZ</option>
+            <option value="ru">RU</option>
+          </select>
+
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="flex items-center justify-center w-10 h-10 rounded-lg bg-background/50 border border-border/50 transition-all hover:bg-background/80 hover:scale-105"
+            aria-label="Toggle menu"
+          >
+            <div className="flex flex-col items-center justify-center w-5 h-5 space-y-1">
+              <span
+                className={`block w-5 h-0.5 bg-foreground transition-all duration-300 rounded-full ${isMobileMenuOpen ? "rotate-45 translate-y-1.5" : ""}`}
+              ></span>
+              <span
+                className={`block w-5 h-0.5 bg-foreground transition-all duration-300 rounded-full ${isMobileMenuOpen ? "opacity-0" : ""}`}
+              ></span>
+              <span
+                className={`block w-5 h-0.5 bg-foreground transition-all duration-300 rounded-full ${isMobileMenuOpen ? "-rotate-45 -translate-y-1.5" : ""}`}
+              ></span>
+            </div>
+          </button>
+        </div>
       </header>
 
       {isMobileMenuOpen && (
@@ -266,43 +295,43 @@ export default function Home() {
                 onClick={() => handleMobileNavClick("features")}
                 className="text-left px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50"
               >
-                Features
+                {t("nav.features")}
               </button>
               <button
                 onClick={() => handleMobileNavClick("about")}
                 className="text-left px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50"
               >
-                About
+                {t("nav.about")}
               </button>
               <button
                 onClick={() => handleMobileNavClick("products")}
                 className="text-left px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50"
               >
-                Products
+                {t("nav.products")}
               </button>
               <button
                 onClick={() => handleMobileNavClick("team")}
                 className="text-left px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50"
               >
-                Team
+                {t("nav.team")}
               </button>
               <button
                 onClick={() => handleMobileNavClick("pricing")}
                 className="text-left px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50"
               >
-                Pricing
+                {t("nav.pricing")}
               </button>
               <button
                 onClick={() => handleMobileNavClick("testimonials")}
                 className="text-left px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50"
               >
-                Testimonials
+                {t("nav.testimonials")}
               </button>
               <button
                 onClick={() => handleMobileNavClick("faq")}
                 className="text-left px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50"
               >
-                FAQ
+                {t("nav.faq")}
               </button>
             </nav>
           </div>

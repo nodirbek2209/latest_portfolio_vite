@@ -4,6 +4,7 @@ import * as React from "react"
 import { forwardRef, useMemo, useRef, createRef } from "react"
 import { cn } from "@/lib/utils"
 import { AnimatedBeam } from "@/components/magicui/animated-beam"
+import { useI18n } from "@/lib/i18n"
 
 const Circle = forwardRef<HTMLDivElement, { className?: string; children?: React.ReactNode }>(
   ({ className, children }, ref) => (
@@ -21,6 +22,7 @@ const Circle = forwardRef<HTMLDivElement, { className?: string; children?: React
 Circle.displayName = "Circle"
 
 export default function AnimatedBeamDemo() {
+    const { t } = useI18n()
     const containerRef = useRef<HTMLDivElement>(null)
 
     // Left & right refs
@@ -62,14 +64,14 @@ export default function AnimatedBeamDemo() {
         <div className="text-center max-w-4xl mx-auto space-y-4">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
             <span className="font-sans text-foreground"><h2 className="from-foreground/60 via-foreground to-foreground/60 dark:from-muted-foreground/55 dark:via-foreground dark:to-muted-foreground/55 mt-5 bg-gradient-to-r bg-clip-text text-center text-4xl font-semibold tracking-tighter text-transparent md:text-[54px] md:leading-[60px] __className_bb4e88 relative z-10">
-                        Powered by
+                        {t("beam.poweredBy")}
                     </h2> </span>
-            <span className="font-serif text-foreground">Modern </span>
-            <span className="text-gradient font-serif">Technologies</span>
+            <span className="font-serif text-foreground">{t("beam.modern")} </span>
+            <span className="text-gradient font-serif">{t("beam.technologies")}</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Seamlessly integrating the best tools and frameworks to deliver{" "}
-            <span className="text-gradient font-serif">cutting-edge solutions</span>
+            {t("beam.subtitle")} {" "}
+            <span className="text-gradient font-serif">{t("beam.highlight")}</span>
           </p>
         </div>
 

@@ -10,5 +10,7 @@ export default defineConfig({
       "next/image": fileURLToPath(new URL("./src/shims/next-image.tsx", import.meta.url)),
       "next/link": fileURLToPath(new URL("./src/shims/next-link.tsx", import.meta.url)),
     },
+
   },
+
 })

@@ -3,51 +3,49 @@
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
 import { Check, Sparkles } from "lucide-react"
+import { useI18n } from "@/lib/i18n"
 
 const products = [
     {
         id: 1,
-        name: "EduMarkaz",
+        name: "product.1.name",
         image: "/logos/edumarkaz.png",
-        description:
-            "A modern education hub connecting students, teachers, and education centers with intelligent matching and learning tools.",
-        features: ["Teacher & Center Profiles", "Smart Matching", "Ratings & Reviews", "Learning Insights"],
+        description: "product.1.desc",
+        features: ["product.1.f1", "product.1.f2", "product.1.f3", "product.1.f4"],
         color: "from-purple-500 to-violet-600",
         link: "https://play.google.com/store/apps/details?id=com.edumarkaz.mobile&pcampaignid=web_share",
     },
     {
         id: 2,
-        name: "EduGame",
+        name: "product.2.name",
         image: "/logos/edugame.png",
-        description:
-            "An engaging gamified learning platform that turns lessons into challenges, rewards progress, and makes studying fun.",
-        features: ["Gamified Learning", "Achievements & Rewards", "Leaderboards", "Interactive Challenges"],
+        description: "product.2.desc",
+        features: ["product.2.f1", "product.2.f2", "product.2.f3", "product.2.f4"],
         color: "from-fuchsia-500 to-purple-600",
         link: "https://play.google.com/store/apps/details?id=com.edumarkaz.mobile&pcampaignid=web_share",
     },
     {
         id: 3,
-        name: "EduManage Soon",
+        name: "product.3.name",
         image: "/logos/edumanage.png",
-        description:
-            "A complete education management system for schools and learning centers to manage classes, schedules, and performance.",
-        features: ["Class Scheduling", "Student Reports", "Payment Tracking", "Center Analytics"],
+        description: "product.3.desc",
+        features: ["product.3.f1", "product.3.f2", "product.3.f3", "product.3.f4"],
         color: "from-indigo-500 to-purple-500",
         link: "#",
     },
     {
         id: 4,
-        name: "EduQuiz Soon",
+        name: "product.4.name",
         image: "/logos/eduquiz.png",
-        description:
-            "A smart quiz and assessment system for teachers and institutions to evaluate student knowledge in real time.",
-        features: ["Quiz Builder", "Auto Grading", "Performance Tracking", "Result Analytics"],
+        description: "product.4.desc",
+        features: ["product.4.f1", "product.4.f2", "product.4.f3", "product.4.f4"],
         color: "from-pink-500 to-violet-600",
         link: "#",
     },
 ]
 
 export default function ProductsSection() {
+    const { t } = useI18n()
     const ref = useRef(null)
     const isInView = useInView(ref, { once: true, amount: 0.3 })
 
@@ -72,7 +70,7 @@ export default function ProductsSection() {
                         className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-6"
                     >
                         <Sparkles className="w-4 h-4 text-[#8b5cf6]" />
-                        <span className="text-sm font-medium text-white/80">Products</span>
+                        <span className="text-sm font-medium text-white/80">{t("products.tag")}</span>
                     </motion.div>
 
                     <motion.h2
@@ -82,7 +80,7 @@ export default function ProductsSection() {
                         className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent mb-4"
                     >
                         <h2 className="from-foreground/60 via-foreground to-foreground/60 dark:from-muted-foreground/55 dark:via-foreground dark:to-muted-foreground/55 mt-5 bg-gradient-to-r bg-clip-text text-center text-4xl font-semibold tracking-tighter text-transparent md:text-[54px] md:leading-[60px] __className_bb4e88 relative z-10">
-                        Explore our suite
+                        {t("products.title")}
                     </h2>
                     </motion.h2>
                     <motion.p
@@ -91,8 +89,7 @@ export default function ProductsSection() {
                         transition={{ duration: 0.7, delay: 0.2, ease: "easeInOut" }}
                         className="text-white/60 text-lg max-w-2xl mx-auto"
                     >
-                        Empowering education with innovation — from learning and management to gamification and
-                        evaluation.
+                        {t("products.subtitle")}
                     </motion.p>
                 </div>
 
@@ -119,7 +116,7 @@ export default function ProductsSection() {
                                 >
                                     <img
                                         src={product.image}
-                                        alt={product.name}
+                                        alt={t(product.name)}
                                         className="w-full h-full object-cover"
                                     />
                                 </motion.div>
@@ -131,7 +128,7 @@ export default function ProductsSection() {
                                     transition={{ duration: 0.5, delay: 0.1 * (index + 1) }}
                                     className="text-xl font-bold text-white mb-2"
                                 >
-                                    {product.name}
+                                    {t(product.name)}
                                 </motion.h3>
 
                                 {/* Description */}
@@ -141,12 +138,12 @@ export default function ProductsSection() {
                                     transition={{ duration: 0.5, delay: 0.15 * (index + 1) }}
                                     className="text-white/60 text-sm mb-5 leading-relaxed"
                                 >
-                                    {product.description}
+                                    {t(product.description)}
                                 </motion.p>
 
                                 {/* Features */}
                                 <div className="space-y-3 flex-grow">
-                                    <p className="text-xs uppercase tracking-wider text-white/55">Key features</p>
+                                    <p className="text-xs uppercase tracking-wider text-white/55">{t("products.keyFeatures")}</p>
                                     <ul className="space-y-2">
                                         {product.features.map((feature, i) => (
                                             <motion.li
@@ -157,7 +154,7 @@ export default function ProductsSection() {
                                                 className="flex items-center gap-2 text-sm text-white/80"
                                             >
                                                 <Check className="w-4 h-4 text-[#8b5cf6]" />
-                                                {feature}
+                                                {t(feature)}
                                             </motion.li>
                                         ))}
                                     </ul>
@@ -167,7 +164,7 @@ export default function ProductsSection() {
                                 <div className="mt-6">
                                     {product.link === "#" ? (
                                         <div className="inline-flex items-center justify-center w-full gap-2 px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white/70 text-sm cursor-not-allowed">
-                                            Coming Soon
+                                            {t("products.comingSoon")}
                                         </div>
                                     ) : (
                                         <motion.a
@@ -185,7 +182,7 @@ export default function ProductsSection() {
                                                 height={18}
                                                 className="opacity-90"
                                             />
-                                            <span>Get it on Play Store</span>
+                                            <span>{t("products.getOnPlay")}</span>
                                         </motion.a>
                                     )}
                                 </div>

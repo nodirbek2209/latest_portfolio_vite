@@ -11,12 +11,14 @@ import { useEffect, useState } from "react"
 import { CardHoverEffect } from "./ui/pulse-card"
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
+import { useI18n } from "@/lib/i18n"
 
 const PIXEL_SCRIPT_URL =
   "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pixel-RKkUKH2OXWk9adKbDnozmndkwseTQh.js"
 
 export default function Hero() {
   const [isScriptLoaded, setIsScriptLoaded] = useState(false)
+  const { t } = useI18n()
 
   useEffect(() => {
     // Use Intersection Observer to load the script only when the component is in view
@@ -50,15 +52,15 @@ export default function Hero() {
 
   const cards = [
     {
-      title: "V0 Compatible",
-      description: "Edit and customize visually, instantly.",
+      title: t("hero.card1.title"),
+      description: t("hero.card1.desc"),
       icon: <CloudLightning className="h-full w-full" />,
       variant: "rose",
       showGridLines: true,
     },
     {
-      title: "Animated Out of Box",
-      description: "No setup and  smooth UI interactions.",
+      title: t("hero.card2.title"),
+      description: t("hero.card2.desc"),
       icon: <Sparkles className="h-full w-full" />,
       variant: "rose",
       showGridLines: true,
@@ -72,7 +74,7 @@ export default function Hero() {
       label: "Command",
       canvasProps: { gap: 3, speed: 80, colors: "#fff, #fda4af, #e11d48" },
       number: 100,
-      desc: "Components available",
+      desc: t("hero.metric1.label"),
     },
     {
       color: "rose",
@@ -80,7 +82,7 @@ export default function Hero() {
       label: "Dropper",
       canvasProps: { gap: 3, speed: 80, colors: "#fff, #fda4af, #e11d48" },
       number: 15,
-      desc: "Categories available",
+      desc: t("hero.metric2.label"),
     },
   ]
 
@@ -138,14 +140,14 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, delay: 0.2 }}
           >
-            Prebuilt UI
+            {t("hero.headingPrefix")}
             <img
               src="/rose.webp"
               alt="Logo"
               draggable={false}
               className="mx-4 mb-2 inline-block h-12 w-12 md:h-16 md:w-16"
             />
-            blocks to ship beautiful MVPs fast.
+            {t("hero.headingSuffix")}
           </motion.h1>
         </div>
         <motion.div
@@ -155,8 +157,7 @@ export default function Hero() {
           transition={{ duration: 0.75, delay: 0.3 }}
         >
           <p className="text-muted-foreground text-xl">
-            Copy-paste beautiful, responsive components without worrying about styling or animations. Build faster,
-            launch sooner.
+            {t("hero.subtext")}
           </p>
         </motion.div>
         <motion.div
@@ -167,12 +168,12 @@ export default function Hero() {
         >
           <Link to="/docs/introduction">
             <Button className="bg-gradient-to-b from-rose-500 to-rose-700 text-sm text-white shadow-[0px_2px_0px_0px_rgba(255,255,255,0.3)_inset]">
-              Get started
+              {t("hero.cta.primary")}
             </Button>
           </Link>
           <Link to="/about">
             <Button variant={"secondary"}>
-              About <MoveRight className="ml-2 h-4 w-4" />
+              {t("hero.cta.secondary")} <MoveRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>
         </motion.div>
@@ -191,7 +192,7 @@ export default function Hero() {
             alt="Next.js"
             className="mt-4 mr-2 hidden w-96 brightness-[4] select-none xl:block"
           />
-          <span className="text-sm text-gray-500">We use industry standards like </span>
+          <span className="text-sm text-gray-500">{t("hero.standards")} </span>
           <img
             src="/nextjs.webp"
             draggable={false}

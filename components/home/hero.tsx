@@ -4,9 +4,11 @@ import { motion } from "framer-motion"
 import { useState, useEffect } from "react"
 import { Badge } from "@/components/ui/badge"
 import { Sparkles } from "lucide-react"
+import { useI18n } from "@/lib/i18n"
 
 export default function Hero() {
     const [mounted, setMounted] = useState(false)
+    const { t } = useI18n()
 
     useEffect(() => setMounted(true), [])
 
@@ -40,7 +42,7 @@ export default function Hero() {
                         className="mb-6"
                     >
                         <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-                            Building the <strong>Future </strong>
+                            {t("hero.headingPrefix").split(" ")[0]} the <strong>Future </strong>
                             <br />
                             Through <em className="italic font-serif text-gradient"> Technology & Strategy </em>
                         </h1>
@@ -53,8 +55,7 @@ export default function Hero() {
                         transition={{ duration: 0.5, delay: 0.2 }}
                         className="mx-auto mb-10 max-w-2xl text-lg text-muted-foreground"
                     >
-                        EduOila unites technology and consulting to help education centers,
-                        startups, and institutions grow smarter and faster.
+                        {t("hero.subtext")}
                     </motion.p>
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
