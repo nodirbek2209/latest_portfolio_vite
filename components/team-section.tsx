@@ -87,7 +87,7 @@ const teamMembers = [
     name: "Musayev Ximmatilloxon",
     role: "Founder && CEO",
     title: "Backend Dev && Product Architect",
-    image: "/himmatilloxon.jpg",
+    image: "/himmatillo.jpg",
     bio: "As co-founder of Eduoila, Ximmatilloxon leads the vision and development of our technology ecosystem. With deep expertise in backend engineering and automation, he builds scalable, high-quality solutions that enhance education.",
     skills: [
       "FastAPI",
