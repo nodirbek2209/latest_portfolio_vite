@@ -220,18 +220,7 @@ export default function Home() {
           </a>
         </div>
         {/* Language selector */}
-        <div className="ml-auto flex items-center gap-2">
-          <select
-            aria-label="Language"
-            value={lang}
-            onChange={(e) => setLang(e.target.value as Language)}
-            className="rounded-md border border-border bg-background/80 px-2 py-1 text-sm"
-          >
-            <option value="en">EN</option>
-            <option value="uz">UZ</option>
-            <option value="ru">RU</option>
-          </select>
-        </div>
+
       </header>
 
       <header className="fixed top-4 z-[9999] left-4 right-4 flex flex-row items-center justify-between rounded-2xl bg-background/80 backdrop-blur-md border border-border/50 shadow-lg md:hidden px-4 py-3">
