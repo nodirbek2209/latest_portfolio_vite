@@ -35,9 +35,9 @@ export function StickyFooter() {
     }
 
     const LINKS = {
-        telegram: "https://t.me/your_handle",
-        instagram: "https://instagram.com/your_profile",
-        youtube: "https://youtube.com/@your_channel",
+        telegram: "https://t.me/edumarkazuz",
+        instagram: "https://www.instagram.com/edumarkaz.uz/",
+        youtube: "https://www.youtube.com/@EduMarkaz-software",
     }
 
     return (
