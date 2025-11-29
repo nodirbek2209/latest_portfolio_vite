@@ -3,23 +3,25 @@
 import { motion, useInView } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useI18n } from "@/lib/i18n"
 
 const achievements = [
   {
     id: 1,
-    title: "Odoo Hackaton 2025 Winners",
-    description: "Learning across our platform",
+    title: "achievements.1.title",
+    description: "achievements.1.description",
     image: "/odoo.png",
   },
   {
     id: 2,
-    title: "4 Innovative Products",
-    description: "Eduoila, Edumarkaz, Eduquiz & Edumanage",
+    title: "achievements.2.title",
+    description: "achievements.2.description",
     image: "/innovations.png",
   }
 ]
 
 export default function AchievementsSection() {
+  const { t } = useI18n()
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -103,7 +105,7 @@ export default function AchievementsSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 text-foreground"
           >
-            Our <span className="text-gradient">Achievements</span>
+            {t("achievements.title")} <span className="text-gradient">{t("achievements.titleHighlight")}</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -111,7 +113,7 @@ export default function AchievementsSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl mx-auto font-sans px-4"
           >
-            Milestones that define our commitment to educational excellence
+            {t("achievements.subtitle")}
           </motion.p>
         </div>
 
@@ -128,7 +130,7 @@ export default function AchievementsSection() {
               <div className="rounded-2xl overflow-hidden border border-primary/20 bg-card/20 backdrop-blur-md w-full h-full">
                 <img
                   src={prevAchievement.image || "/placeholder.svg"}
-                  alt={prevAchievement.title}
+                  alt={t(prevAchievement.title)}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -163,7 +165,7 @@ export default function AchievementsSection() {
                     <div className="relative rounded-2xl overflow-hidden border border-primary/40 bg-card/40 backdrop-blur-md p-2 aspect-square max-w-sm mx-auto md:max-w-none">
                       <img
                         src={currentAchievement.image || "/placeholder.svg"}
-                        alt={currentAchievement.title}
+                        alt={t(currentAchievement.title)}
                         className="w-full h-full object-cover rounded-xl"
                       />
                     </div>
@@ -189,9 +191,9 @@ export default function AchievementsSection() {
                       transition={{ duration: 0.5, delay: 0.2 }}
                     >
                       <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-                        {currentAchievement.title.split(" ").map((word, i) => (
+                        {t(currentAchievement.title).split(" ").map((word, i) => (
                           <span key={i}>
-                            {i === currentAchievement.title.split(" ").length - 1 ? (
+                            {i === t(currentAchievement.title).split(" ").length - 1 ? (
                               <span className="text-gradient">{word}</span>
                             ) : (
                               word
@@ -208,7 +210,7 @@ export default function AchievementsSection() {
                       transition={{ duration: 0.5, delay: 0.3 }}
                       className="text-muted-foreground font-sans text-sm sm:text-base md:text-base leading-relaxed max-w-md mt-2 sm:mt-3 md:mt-4"
                     >
-                      {currentAchievement.description}
+                      {t(currentAchievement.description)}
                     </motion.p>
                   </div>
                 </motion.div>
@@ -228,7 +230,7 @@ export default function AchievementsSection() {
               <div className="rounded-2xl overflow-hidden border border-primary/20 bg-card/20 backdrop-blur-md w-full h-full">
                 <img
                   src={nextAchievement.image || "/placeholder.svg"}
-                  alt={nextAchievement.title}
+                  alt={t(nextAchievement.title)}
                   className="w-full h-full object-cover"
                 />
               </div>

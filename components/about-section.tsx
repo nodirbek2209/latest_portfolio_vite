@@ -2,8 +2,10 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef } from "react"
+import { useI18n } from "@/lib/i18n"
 
 export default function AboutSection() {
+  const { t } = useI18n()
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
 
@@ -25,7 +27,7 @@ export default function AboutSection() {
             transition={{ duration: 0.7, delay: 0.1, ease: "easeInOut" }}
             className="font-serif text-5xl md:text-6xl font-bold mb-6 text-foreground"
           >
-            About <span className="text-gradient">Eduoila</span>
+            {t("about.title")} <span className="text-gradient">{t("about.name")}</span>
           </motion.h2>
 
           <motion.div
@@ -35,21 +37,15 @@ export default function AboutSection() {
             className="space-y-6 text-muted-foreground text-lg leading-relaxed"
           >
             <p>
-              Eduoila is a revolutionary EdTech startup founded by three passionate educators and technologists
-              committed to transforming the way students learn and teachers teach. We believe that technology should
-              empower education, not replace it.
+              {t("about.p1")}
             </p>
 
             <p>
-              Our mission is to create accessible, engaging, and effective learning experiences that adapt to each
-              student's unique needs. Through our suite of innovative products—Edumarkaz, Eduquiz, and Edumanage—we're
-              building a comprehensive ecosystem that supports educators and inspires learners.
+              {t("about.p2")}
             </p>
 
             <p>
-              With a focus on innovation, user experience, and measurable outcomes, Eduoila is dedicated to making
-              quality education available to everyone, everywhere. We're not just building software; we're building the
-              future of learning.
+              {t("about.p3")}
             </p>
           </motion.div>
         </div>
@@ -62,9 +58,9 @@ export default function AboutSection() {
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { label: "Founded", value: "2025" },
-              { label: "Team Size", value: "5+" },
-              { label: "Products", value: "5+" },
+              { label: t("about.stat1Label"), value: t("about.stat1Value") },
+              { label: t("about.stat2Label"), value: t("about.stat2Value") },
+              { label: t("about.stat3Label"), value: t("about.stat3Value") },
             ].map((stat, index) => (
               <motion.div
                 key={index}

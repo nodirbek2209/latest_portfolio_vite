@@ -3,6 +3,7 @@
 import { motion, useInView, type PanInfo } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight, GithubIcon, LinkedinIcon, Send, Code2 } from "lucide-react"
+import { useI18n } from "@/lib/i18n"
 
 const teamMembers = [
   {
@@ -146,6 +147,7 @@ const teamMembers = [
 ]
 
 export default function TeamSection() {
+  const { t } = useI18n()
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -263,7 +265,7 @@ export default function TeamSection() {
             transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
             className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 text-foreground"
           >
-            Meet Our <span className="text-gradient">Team</span>
+            {t("team.title")} <span className="text-gradient">{t("team.titleHighlight")}</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -271,7 +273,7 @@ export default function TeamSection() {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl mx-auto font-sans px-4"
           >
-            Passionate educators and technologists building the future of learning
+            {t("team.subtitle")}
           </motion.p>
         </div>
 
@@ -388,7 +390,7 @@ export default function TeamSection() {
                       transition={{ duration: 0.5, delay: 0.2 }}
                     >
                       <p className="text-primary font-sans text-xs sm:text-sm font-semibold mb-1.5 sm:mb-2">
-                        Hello! I am <span className="text-secondary">{currentMember.name}</span>
+                        {t("team.hello")} <span className="text-secondary">{t(`team.member.${currentMember.id}.name`)}</span>
                       </p>
                     </motion.div>
 
@@ -400,12 +402,12 @@ export default function TeamSection() {
                     >
                       <div className="flex-1">
                         <p className="text-muted-foreground font-sans text-xs sm:text-sm mb-1.5 sm:mb-2">
-                          {currentMember.role}
+                          {t(`team.member.${currentMember.id}.role`)}
                         </p>
                         <h3 className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground leading-tight">
-                          {currentMember.title.split(" ").map((word, i) => (
+                          {t(`team.member.${currentMember.id}.title`).split(" ").map((word, i) => (
                             <span key={i}>
-                              {i === currentMember.title.split(" ").length - 1 ? (
+                              {i === t(`team.member.${currentMember.id}.title`).split(" ").length - 1 ? (
                                 <span className="text-gradient">{word}</span>
                               ) : (
                                 word
@@ -428,7 +430,7 @@ export default function TeamSection() {
                         >
                           <ChevronRight className="w-5 h-5" />
                         </motion.button>
-                        <div className="text-xs text-muted-foreground">Swipe</div>
+                        <div className="text-xs text-muted-foreground">{t("team.swipe")}</div>
                       </div>
                     </motion.div>
 
@@ -439,7 +441,7 @@ export default function TeamSection() {
                       transition={{ duration: 0.5, delay: 0.4 }}
                       className="text-muted-foreground font-sans text-xs sm:text-sm md:text-base leading-relaxed max-w-md mt-2 sm:mt-3"
                     >
-                      {currentMember.bio}
+                      {t(`team.member.${currentMember.id}.bio`)}
                     </motion.p>
 
                     {/* Social links (kept under the bio) */}
@@ -522,7 +524,7 @@ export default function TeamSection() {
               {/* Skills card */}
               {currentMember.skills?.length ? (
                 <div className="rounded-2xl border border-primary/20 bg-card/20 backdrop-blur-md p-6 sm:p-8 md:pl-12 lg:pl-16">
-                  <h4 className="text-foreground font-semibold text-sm sm:text-base mb-4">Skills</h4>
+                  <h4 className="text-foreground font-semibold text-sm sm:text-base mb-4">{t("team.skills")}</h4>
                   <div className="flex flex-wrap gap-2.5">
                     {currentMember.skills.map((skill, idx) => (
                       <span
@@ -541,7 +543,7 @@ export default function TeamSection() {
               {/* Experience card */}
               {currentMember.experience?.length ? (
                 <div className="rounded-2xl border border-primary/20 bg-card/20 backdrop-blur-md p-6 sm:p-8 md:pr-12 lg:pr-16">
-                  <h4 className="text-foreground font-semibold text-sm sm:text-base mb-4">Experience</h4>
+                  <h4 className="text-foreground font-semibold text-sm sm:text-base mb-4">{t("team.experience")}</h4>
                   <ul className="space-y-3">
                     {currentMember.experience.map((exp, idx) => (
                       <li key={idx} className="flex items-start gap-3">

@@ -3,8 +3,10 @@
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { PhoneMockup } from "@/components/phone-mockup"
+import { useI18n } from "@/lib/i18n"
 
 export function PhoneVideoCollage() {
+  const { t } = useI18n()
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
@@ -47,14 +49,14 @@ export function PhoneVideoCollage() {
             >
               <div className="absolute inset-x-0 -top-px mx-auto h-0.5 w-1/2 bg-gradient-to-r from-transparent via-[#9c40ff] to-transparent shadow-2xl transition-all duration-500 group-hover:w-3/4"></div>
               <div className="absolute inset-x-0 -bottom-px mx-auto h-0.5 w-1/2 bg-gradient-to-r from-transparent via-[#9c40ff] to-transparent shadow-2xl transition-all duration-500 group-hover:h-px"></div>
-              <span className="relative text-white">Showcase</span>
+              <span className="relative text-white">{t("collage.tag")}</span>
             </button>
           </div>
           <h2 className="from-foreground/60 via-foreground to-foreground/60 dark:from-muted-foreground/55 dark:via-foreground dark:to-muted-foreground/55 mt-5 bg-gradient-to-r bg-clip-text text-4xl md:text-[54px] font-semibold tracking-tighter text-transparent md:leading-[60px] relative z-10">
-            Power of mobile solutions to EduOila users
+            {t("collage.title")}
           </h2>
           <p className="mt-4 relative z-10 text-lg text-zinc-500">
-            From intuitive design to powerful features, our app has become an essential tool for users around the world.
+            {t("collage.subtitle")}
           </p>
         </div>
 
@@ -123,14 +125,14 @@ export function PhoneVideoCollage() {
           >
             <div className="absolute inset-x-0 -top-px mx-auto h-0.5 w-1/2 bg-gradient-to-r from-transparent via-[#9c40ff] to-transparent shadow-2xl transition-all duration-500 group-hover:w-3/4"></div>
             <div className="absolute inset-x-0 -bottom-px mx-auto h-0.5 w-1/2 bg-gradient-to-r from-transparent via-[#9c40ff] to-transparent shadow-2xl transition-all duration-500 group-hover:h-px"></div>
-            <span className="relative text-white">Showcase</span>
+            <span className="relative text-white">{t("collage.tag")}</span>
           </button>
         </div>
         <h2 className="mt-5 bg-gradient-to-r from-foreground/60 via-foreground to-foreground/60 bg-clip-text text-3xl md:text-[40px] font-semibold tracking-tighter text-transparent leading-tight relative z-10">
-          Power of mobile solutions to EduOila users
+          {t("collage.title")}
         </h2>
         <p className="mt-3 text-base text-zinc-500">
-          From intuitive design to powerful features, our app has become an essential tool for users around the world.
+          {t("collage.subtitle")}
         </p>
       </div>
 

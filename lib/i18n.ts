@@ -25,7 +25,7 @@ const translations: Translations = {
     // Hero
     "hero.headingPrefix": "Prebuilt UI",
     "hero.headingSuffix": "blocks to ship beautiful MVPs fast.",
-    "hero.subtext": "Copy-paste beautiful, responsive components without worrying about styling or animations. Build faster, launch sooner.",
+    "hero.subtext": "EduMarkaz is an innovative education platform that connects students, teachers, and education centers. Discover quality learning opportunities and manage your education journey efficiently.",
     "hero.cta.primary": "Get started",
     "hero.cta.secondary": "About",
     "hero.standards": "We use industry standards like",
@@ -35,10 +35,64 @@ const translations: Translations = {
     "hero.card2.desc": "No setup and smooth UI interactions.",
     "hero.metric1.label": "Components available",
     "hero.metric2.label": "Categories available",
+    "hero.badge": "EduOila Ecosystem",
+    "hero.headline1": "Connect with",
+    "hero.headline2": "Quality Education",
+    "hero.headline3": "Through",
+    "hero.headline4": "EduMarkaz Platform",
+    "hero.weAreMadeBy": "Trusted by leading educational institutions",
+    "hero.getEduMarkaz": "Get EduMarkaz",
+
+    // Team
+    "team.title": "Meet Our",
+    "team.titleHighlight": "Team",
+    "team.subtitle": "Passionate educators and technologists building the future of learning",
+    "team.hello": "Hello! I am",
+    "team.skills": "Skills",
+    "team.experience": "Experience",
+    "team.swipe": "Swipe",
+
+    // Team Members
+    "team.member.1.name": "Rejabaliyev Nodirbek",
+    "team.member.1.role": "Founder && CEO",
+    "team.member.1.title": "Educational Visionary && Flutter Dev",
+    "team.member.1.bio": "With 1+ years of experience in educational technology, Nodirbek founded Eduoila to digitalize the educational system. His passion for innovation drives our mission to make quality education accessible to everyone.",
+
+    "team.member.2.name": "Dilnoza Eraliyeva",
+    "team.member.2.role": "Flutter && Web Developer",
+    "team.member.2.title": "Frontend Developer",
+    "team.member.2.bio": "Dilnoza is a Flutter and web developer who focuses on building smooth, visually appealing, and efficient user interfaces. At Eduoila, she works on crafting responsive web and mobile experiences that simplify learning for everyone.",
+
+    "team.member.3.name": "Yoqubjonov Abdulhafiz",
+    "team.member.3.role": "Project Manager && Frontend Dev",
+    "team.member.3.title": "Full-Stack Dev && Tech Innovator",
+    "team.member.3.bio": "A passionate software engineer and project manager focused on building scalable, user-centric applications. With strong experience in React, TypeScript, and Python, he leads projects that blend clean design with solid architecture and team collaboration.",
+
+    "team.member.4.name": "Musayev Ximmatilloxon",
+    "team.member.4.role": "Founder && CEO",
+    "team.member.4.title": "Backend Dev && Product Architect",
+    "team.member.4.bio": "As co-founder of Eduoila, Ximmatilloxon leads the vision and development of our technology ecosystem. With deep expertise in backend engineering and automation, he builds scalable, high-quality solutions that enhance education.",
+
+    "team.member.5.name": "Diyorbek Umaraliyev",
+    "team.member.5.role": "Backend && AI Specialist",
+    "team.member.5.title": "ML and Backend Engineer",
+    "team.member.5.bio": "Diyorbek is a backend and AI specialist passionate about building efficient, data-driven systems. At EduOila, he focuses on integrating machine learning models with scalable backend services.",
+
+    // Phone Video Collage
+    "collage.tag": "Showcase",
+    "collage.title": "Power of mobile solutions to EduOila users",
+    "collage.subtitle": "From intuitive design to powerful features, our app has become an essential tool for users around the world.",
+
+    // Achievements
+    "achievements.title": "Our",
+    "achievements.titleHighlight": "Achievements",
+    "achievements.subtitle": "Milestones that define our commitment to educational excellence",
+    "achievements.1.title": "Odoo Hackaton 2025 Winners",
+    "achievements.1.description": "Learning across our platform",
+    "achievements.2.title": "4 Innovative Products",
+    "achievements.2.description": "Eduoila, Edumarkaz, Eduquiz & Edumanage",
 
     // Animated Beam Demo
-    "beam.poweredBy": "Powered by",
-    "beam.modern": "Modern",
     "beam.technologies": "Technologies",
     "beam.subtitle": "Seamlessly integrating the best tools and frameworks to deliver",
     "beam.highlight": "cutting-edge solutions",
@@ -101,7 +155,7 @@ const translations: Translations = {
     // Hero
     "hero.headingPrefix": "Tayyor UI",
     "hero.headingSuffix": "bloklar yordamida chiroyli MVPlarni tez yetkazing.",
-    "hero.subtext": "Chiroyli va moslashuvchan komponentlarni shunchaki nusxa ko'chirib ishlating — dizayn va animatsiyalar haqida qayg'urmang.",
+    "hero.subtext": "EduMarkaz - talabalar, o'qituvchilar va ta'lim markazlarini bog'laydigan innovatsion ta'lim platformasi. Sifatli o'rganish imkoniyatlarini kashf eting va o'zingizning ta'lim yo'lingizni samarali boshqaring.",
     "hero.cta.primary": "Boshlash",
     "hero.cta.secondary": "Haqida",
     "hero.standards": "Biz sanoat standartlaridan foydalanamiz:",
@@ -111,6 +165,75 @@ const translations: Translations = {
     "hero.card2.desc": "O'rnatishsiz silliq UI interaksiyalar.",
     "hero.metric1.label": "Mavjud komponentlar",
     "hero.metric2.label": "Mavjud toifalar",
+    "hero.badge": "EduOila Ekosistema",
+    "hero.headline1": "Sifatli",
+    "hero.headline2": "Ta'lim bilan",
+    "hero.headline3": "Bog'lanish",
+    "hero.headline4": "EduMarkaz Platformasi orqali",
+    "hero.weAreMadeBy": "Yetakchi ta'lim muassasalari tomonidan ishonilgan",
+    "hero.getEduMarkaz": "EduMarkaz olish",
+
+    // Team
+    "team.title": "Bizning",
+    "team.titleHighlight": "Jamoamiz bilan tanishing",
+    "team.subtitle": "Ta'lim kelajagini qurayotgan ishtiyoqli ta'limchi va texnologlar",
+    "team.hello": "Salom! Men",
+    "team.skills": "Ko'nikmalar",
+    "team.experience": "Tajriba",
+    "team.swipe": "Suring",
+
+    // Team Members
+    "team.member.1.name": "Rejabaliyev Nodirbek",
+    "team.member.1.role": "Asoschisi && Bosh direktor",
+    "team.member.1.title": "Ta'lim innovatori && Flutter ishlab chiquvchi",
+    "team.member.1.bio": "Ta'lim texnologiyasida 1+ yil tajriba bilan, Nodirbek ta'lim tizimini raqamlashtirish uchun Eduoilani tashkil qildi. Uning innovatsiyaga bo'lgan ishtiyoqi barchasiga sifatli ta'limni taqdim etish missionimizni boshqaradi.",
+
+    "team.member.2.name": "Dilnoza Eraliyeva",
+    "team.member.2.role": "Flutter && Veb ishlab chiquvchi",
+    "team.member.2.title": "Frontend ishlab chiquvchi",
+    "team.member.2.bio": "Dilnoza, silliq, vizual jihatdan jozibali va samarali foydalanuvchi interfeyslari yaratishga qaratadigan Flutter va veb ishlab chiquvchi. Eduoilada u barcha uchun o'rganishni soddalashtiruvchi responsiv veb va mobil tajribalarni yaratish ustida ishlaydi.",
+
+    "team.member.3.name": "Yoqubjonov Abdulhafiz",
+    "team.member.3.role": "Loyiha menejeri && Frontend ishlab chiquvchi",
+    "team.member.3.title": "To'liq stakda ishlab chiquvchi && Texnolog innovatori",
+    "team.member.3.bio": "Mas'ul bo'lgan dastur muhandisi va loyiha menejeri, o'lchalanishi mumkin bo'lgan, foydalanuvchiga qaratadigan ilovalarni yaratishga qaratilgan. React, TypeScript va Pythonda chuqur tajribaga ega bo'lib, u toza dizayn va mustahkam arxitekturani hamda jamoa hamkorligini birlashtiruvchi loyihalarni boshqaradi.",
+
+    "team.member.4.name": "Musayev Ximmatilloxon",
+    "team.member.4.role": "Asoschisi && Bosh direktor",
+    "team.member.4.title": "Backend ishlab chiquvchi && Mahsulot arxitekturi",
+    "team.member.4.bio": "Eduoila ham-asoschisi sifatida Ximmatilloxon bizning texnologiya ekosistema va rivojlanishning ko'rinishi boshqaradi. Backend muhandisligi va avtomatizashyonda chuqur tajribaga ega bo'lib, u ta'limni yaxshilaydigan o'lchalanishi mumkin bo'lgan, yuqori sifatli yechimlarni yaratadi.",
+
+    "team.member.5.name": "Diyorbek Umaraliyev",
+    "team.member.5.role": "Backend && Sun'iy intellekt mutaxassisi",
+    "team.member.5.title": "ML va Backend muhandisi",
+    "team.member.5.bio": "Diyorbek, samarali, ma'lumotga asoslangan tizimlar yaratishga ishtiyoqli backend va sun'iy intellekt mutaxassisi. EduOilada u mashinaviy o'rganish modellarini o'lchalanishi mumkin bo'lgan backend xizmatlar bilan birlashtirishga qaratilgan.",
+
+    // About
+    "about.title": "Haqida",
+    "about.name": "Eduoila",
+    "about.p1": "Eduoila - talabalar va o'qituvchilarning o'rganish va o'qitish usuliga inqilob keltirish uchun inodayuq ta'limchi va texnologlarning 3 o'ziga xos ta'siri bilan tashkil etilgan inqilobiy EdTech startapi. Biz texnologiya ta'limni rivojlantirishi kerakligiga ishonamiz, uni almashtirmasdan.",
+    "about.p2": "Bizning missionimiz - har bir talabaning noyob ehtiyojiga javob beradigan, qatnashuvchi va samarali o'rganish tajribalarini yaratish. EduMarkaz, EduQuiz va EduManage mahsulotlarining butun to'plami orqali biz o'qituvchilarni qo'llab-quvvatlash va o'quvchilarni ilhomlantiruvchi yaxlit ekosistemani qurayapti.",
+    "about.p3": "Innovatsiya, foydalanuvchi tajribasi va o'lchanladigan natijalarni e'tiborga olib, Eduoila hamma uchun, hamma joyda sifatli ta'limni taqdim etishga bag'ishlangan. Biz faqat dastur tuzmayapti; biz ta'lim kelajagini qurayapti.",
+    "about.stat1Label": "Asos solingan",
+    "about.stat1Value": "2025",
+    "about.stat2Label": "Jamoa o'lchami",
+    "about.stat2Value": "5+",
+    "about.stat3Label": "Mahsulotlar",
+    "about.stat3Value": "5+",
+
+    // Phone Video Collage
+    "collage.tag": "Namoyish",
+    "collage.title": "EduOila foydalanuvchilari uchun mobil yechimlarning kuchi",
+    "collage.subtitle": "Intuitiv dizayndan kuchli xususiyatlargacha, bizning ilova butun dunyo bo'ylab foydalanuvchilar uchun zarur vositaga aylandi.",
+
+    // Achievements
+    "achievements.title": "Bizning",
+    "achievements.titleHighlight": "Yutuqlar",
+    "achievements.subtitle": "Ta'lim kamoli uchun bizning intilishimizni belgilaydigan muhim jadvallar",
+    "achievements.1.title": "Odoo Hackaton 2025 Poydevallari",
+    "achievements.1.description": "Bizning platformamizda o'rganish",
+    "achievements.2.title": "4 Innovatsion Mahsulot",
+    "achievements.2.description": "Eduoila, Edumarkaz, Eduquiz va Edumanage",
 
     // Animated Beam Demo
     "beam.poweredBy": "Quvvatlaydi",
@@ -177,7 +300,7 @@ const translations: Translations = {
     // Hero
     "hero.headingPrefix": "Готовые UI",
     "hero.headingSuffix": "блоки для быстрого запуска красивых MVP.",
-    "hero.subtext": "Копируйте и используйте красивые, адаптивные компоненты без забот о стилях и анимациях. Стройте быстрее, запускайте раньше.",
+    "hero.subtext": "EduMarkaz — инновационная образовательная платформа, которая связывает студентов, учителей и образовательные центры. Откройте для себя возможности качественного обучения и эффективно управляйте своим образовательным путем.",
     "hero.cta.primary": "Начать",
     "hero.cta.secondary": "О нас",
     "hero.standards": "Мы используем отрасленные стандарты:",
@@ -187,6 +310,75 @@ const translations: Translations = {
     "hero.card2.desc": "Плавные UI-взаимодействия без настроек.",
     "hero.metric1.label": "Доступные компоненты",
     "hero.metric2.label": "Доступные категории",
+    "hero.badge": "EduOila Экосистема",
+    "hero.headline1": "Свяжитесь с",
+    "hero.headline2": "Качественным образованием",
+    "hero.headline3": "Через",
+    "hero.headline4": "Платформу EduMarkaz",
+    "hero.weAreMadeBy": "Доверено ведущими образовательными учреждениями",
+    "hero.getEduMarkaz": "Получить EduMarkaz",
+
+    // Team
+    "team.title": "Познакомьтесь с нашей",
+    "team.titleHighlight": "командой",
+    "team.subtitle": "Увлеченные педагоги и технологи, создающие будущее образования",
+    "team.hello": "Привет! Я",
+    "team.skills": "Навыки",
+    "team.experience": "Опыт",
+    "team.swipe": "Смахивайте",
+
+    // Team Members
+    "team.member.1.name": "Реджабалиев Нодирбек",
+    "team.member.1.role": "Основатель && генеральный директор",
+    "team.member.1.title": "Образовательный визионер && разработчик Flutter",
+    "team.member.1.bio": "С опытом 1+ года в образовательных технологиях Нодирбек основал Eduoila для оцифровки образовательной системы. Его страсть к инновациям направляет нашу миссию сделать качественное образование доступным для всех.",
+
+    "team.member.2.name": "Дилноза Еральева",
+    "team.member.2.role": "Разработчик Flutter && веб",
+    "team.member.2.title": "Разработчик фронтенда",
+    "team.member.2.bio": "Дилноза - разработчик Flutter и веб, сосредоточенная на создании гладких, визуально привлекательных и эффективных пользовательских интерфейсов. В Eduoila она работает над созданием отзывчивых веб и мобильных интерфейсов, которые упрощают обучение для всех.",
+
+    "team.member.3.name": "Йокубжонов Абдулхафиз",
+    "team.member.3.role": "Менеджер проекта && разработчик фронтенда",
+    "team.member.3.title": "Разработчик полного стека && технологический новатор",
+    "team.member.3.bio": "Страстный инженер-программист и менеджер проектов, ориентированный на создание масштабируемых приложений, ориентированных на пользователя. Имея опыт работы с React, TypeScript и Python, он руководит проектами, которые сочетают чистый дизайн с надежной архитектурой и командным сотрудничеством.",
+
+    "team.member.4.name": "Мусаев Химмматиллохон",
+    "team.member.4.role": "Основатель && генеральный директор",
+    "team.member.4.title": "Разработчик бэкенда && архитектор продукта",
+    "team.member.4.bio": "Как соучредитель Eduoila, Химмматиллохон возглавляет видение и разработку нашей технологической экосистемы. Имея глубокий опыт в инженерии бэкенда и автоматизации, он создает масштабируемые высокачественные решения, которые улучшают образование.",
+
+    "team.member.5.name": "Дийорбек Умаралиев",
+    "team.member.5.role": "Специалист бэкенда && ИИ",
+    "team.member.5.title": "Инженер ML и бэкенда",
+    "team.member.5.bio": "Дийорбек - специалист в области бэкенда и искусственного интеллекта, страстно увлеченный созданием эффективных систем, основанных на данных. В EduOila он сосредоточен на интеграции моделей машинного обучения с масштабируемыми услугами бэкенда.",
+
+    // About
+    "about.title": "О нас",
+    "about.name": "Eduoila",
+    "about.p1": "Eduoila - революционный стартап EdTech, основанный тремя страстными педагогами и технологами, посвященными изменению способа обучения студентов и преподавания учителями. Мы верим, что технология должна расширять возможности образования, а не заменять его.",
+    "about.p2": "Наша миссия - создавать доступные, увлекательные и эффективные учебные опыты, которые адаптируются к уникальным потребностям каждого студента. Благодаря нашему набору инновационных продуктов - Edumarkaz, Eduquiz и Edumanage - мы создаем комплексную экосистему, поддерживающую преподавателей и вдохновляющую обучающихся.",
+    "about.p3": "Сосредоточившись на инновациях, пользовательском опыте и измеримых результатах, Eduoila стремится сделать качественное образование доступным для всех и везде. Мы не просто создаем программное обеспечение; мы строим будущее образования.",
+    "about.stat1Label": "Основана",
+    "about.stat1Value": "2025",
+    "about.stat2Label": "Размер команды",
+    "about.stat2Value": "5+",
+    "about.stat3Label": "Продукты",
+    "about.stat3Value": "5+",
+
+    // Phone Video Collage
+    "collage.tag": "Витрина",
+    "collage.title": "Сила мобильных решений для пользователей EduOila",
+    "collage.subtitle": "От интуитивного дизайна до мощных функций, наше приложение стало незаменимым инструментом для пользователей по всему миру.",
+
+    // Achievements
+    "achievements.title": "Наши",
+    "achievements.titleHighlight": "Достижения",
+    "achievements.subtitle": "Вехи, которые определяют нашу приверженность совершенству в образовании",
+    "achievements.1.title": "Победители Odoo Hackaton 2025",
+    "achievements.1.description": "Обучение на нашей платформе",
+    "achievements.2.title": "4 инновационных продукта",
+    "achievements.2.description": "Eduoila, Edumarkaz, Eduquiz и Edumanage",
 
     // Animated Beam Demo
     "beam.poweredBy": "На базе",
